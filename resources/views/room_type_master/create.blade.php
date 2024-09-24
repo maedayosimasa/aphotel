@@ -15,16 +15,16 @@
     <div>
         <form action="">
              <div>
-                <label for="username">氏名：</label>
-                <input type="text" name="username">
+                <label for="roomtype">部屋種別：</label>
+                <input type="text" name="roomtype">
             </div>
             <div>
-                <label for="address">住所：</label>
-                <input type="text" name="address">
+                <label for="room_name">名称：</label>
+                <input type="text" name="room_name">
             </div>
             <div>
-                <label for="tel">電話番号：</label>
-                <input type="tel" name="tel">
+                <label for="stay_number">宿泊可能人数：</label>
+                <input type="text" name="stay_number">
             </div>
             <input type="submit" value="送信"> 
         

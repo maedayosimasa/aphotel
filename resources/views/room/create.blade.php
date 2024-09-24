@@ -15,16 +15,16 @@
     <div>
         <form action="">
              <div>
-                <label for="username">氏名：</label>
-                <input type="text" name="username">
+                <label for="roomid">部屋ID：</label>
+                <input type="text" name="roomid">
             </div>
             <div>
-                <label for="address">住所：</label>
-                <input type="text" name="address">
+                <label for="room_typeid">部屋種別ID：</label>
+                <input type="text" name="room_typeid">
             </div>
             <div>
-                <label for="tel">電話番号：</label>
-                <input type="tel" name="tel">
+                <label for="room_number">部屋番号：</label>
+                <input type="text" name="room_number">
             </div>
             <input type="submit" value="送信"> 
         

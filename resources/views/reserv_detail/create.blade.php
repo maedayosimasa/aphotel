@@ -14,6 +14,7 @@
         
     <div>
         <form action="">
+            <h2>予約明細フォーム</h2>
              <div>
                 <label for="reserv_detail">予約明細ID：</label>
                 <input type="text" name="reserv_detail">
@@ -28,11 +29,11 @@
             </div>
             <div>
                 <label for="stay_day">宿泊日：</label>
-                <input type="tel" name="stay_day">
+                <input type="text" name="stay_day">
             </div>
             <div>
-                <label for="stay_day">宿泊料：</label>
-                <input type="tel" name="stay_day">
+                <label for="stay_price">宿泊料：</label>
+                <input type="text" name="stay_price">
             </div>
             <input type="submit" value="送信"> 
         

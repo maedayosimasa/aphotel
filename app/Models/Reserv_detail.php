@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Guest extends Model
+class Reserv_detail extends Model
 {
     use HasFactory;
-
-  protected $fillable = [
-    'usrename',
-    'address',
-    'tel',
-  ];
 }

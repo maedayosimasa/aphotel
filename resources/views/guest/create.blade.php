@@ -13,7 +13,8 @@
     <body>
         
     <div>
-        <form action="">
+        <form method="post" action="{{route('guest.stor')}}">
+            @csrf
              <div>
                 <label for="username">氏名：</label>
                 <input type="text" name="username">

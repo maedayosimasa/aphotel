@@ -14,6 +14,7 @@
         
     <div>
         <form action="">
+            <h2>予約フォーム</h2>
              <div>
                 <label for="userid">利用者ID：</label>
                 <input type="text" name="userid">
