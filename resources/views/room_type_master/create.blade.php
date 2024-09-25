@@ -13,10 +13,11 @@
     <body>
         
     <div>
-        <form action="">
+        <form method="post" action="{{route('room_type_master.store')}}">
+            @csrf
              <div>
-                <label for="roomtype">部屋種別：</label>
-                <input type="text" name="roomtype">
+                <label for="room_type">部屋種別：</label>
+                <input type="text" name="room_type">
             </div>
             <div>
                 <label for="room_name">名称：</label>

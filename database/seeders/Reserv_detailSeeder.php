@@ -12,7 +12,7 @@ class Reserv_detailSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Resrv_detail::create([
+        \App\Models\Reserv_detail::create([
             'reserv_detail' => 000,
             'reservid' => 000,
             'roomid' => 000,

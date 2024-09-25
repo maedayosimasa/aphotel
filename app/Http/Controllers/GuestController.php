@@ -16,7 +16,7 @@ class GuestController extends Controller
         $post = Guest::create([
             'username' => $request->username,
             'address' => $request->address,
-            'tel' => $request->tel,
+            'tel' => $request->tel
         ]);
         return back();
     }

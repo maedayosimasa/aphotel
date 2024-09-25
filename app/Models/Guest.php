@@ -10,8 +10,16 @@ class Guest extends Model
     use HasFactory;
 
   protected $fillable = [
-    'usrename',
+    'username',
     'address',
     'tel',
   ];
-}
+
+  public function reservations(){
+    return $this->hasMany(Reservation::class);
+  }
+  public function guest() {
+    return $this->belongsTo(Guest::class);
+  }
+  }
+

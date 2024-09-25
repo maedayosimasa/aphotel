@@ -13,7 +13,8 @@
     <body>
         
     <div>
-        <form action="">
+        <form method="post" action="{{route('room.store')}}">
+            @csrf
              <div>
                 <label for="roomid">部屋ID：</label>
                 <input type="text" name="roomid">

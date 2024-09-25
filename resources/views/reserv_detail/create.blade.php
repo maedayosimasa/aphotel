@@ -13,7 +13,8 @@
     <body>
         
     <div>
-        <form action="">
+        <form method="post" action="{{route('reserv_detail.store')}}">
+            @csrf
             <h2>予約明細フォーム</h2>
              <div>
                 <label for="reserv_detail">予約明細ID：</label>
@@ -25,7 +26,7 @@
             </div>
             <div>
                 <label for="roomid">部屋ID：</label>
-                <input type="tel" name="roomid">
+                <input type="text" name="roomid">
             </div>
             <div>
                 <label for="stay_day">宿泊日：</label>

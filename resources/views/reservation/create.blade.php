@@ -13,7 +13,8 @@
     <body>
         
     <div>
-        <form action="">
+        <form method="post" action="{{route('Reservation.store')}}">
+            @csrf
             <h2>予約フォーム</h2>
              <div>
                 <label for="userid">利用者ID：</label>
