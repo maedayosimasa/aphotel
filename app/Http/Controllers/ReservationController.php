@@ -7,21 +7,22 @@ use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
-//  \reservatuonテーブルのデータをすべて取得
+//  reservatuonテーブルのデータをすべて取得
     public function index() {
-        $post=Reservation::all();
-        return view('reservation.index', compact('reservations'));
+        $posts=Reservation::all();
+        return view('reservation.index', compact('posts'));
     }
+    
     public function create(){
         return view('reservation.create');
     }
     public function store(Request $request) {
         $post = Reservation::create([
-            'userid' => $request->userid,
+            'guest_id' => $request->guest_id,
             'number' => $request->number,
             'inday' => $request->inday,
             'outday' => $request->outday
         ]);
-      //  $validated['userid'] = auth()->id();
+       //$validated['guest_id'] = auth()->id();
     }
 }

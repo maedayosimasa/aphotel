@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>一覧表示</title>
 </head>
 <body>
     <div class="mx-auto px-6">
-        @foreach($reservation as $reservation)
+        <h3>一覧表示</h3>
+        @foreach($posts as $reservation)
             <div class="mt-4 p-8 bg-white w-full rounded-2xl">
-             <h1 class="p-4 text-lg font-semibold">
-                {{reservation->title}}
-             </h1>
+             <h3 class="p-4 text-lg font-semibold">
+                {{$reservation->id}}
+             </h3>
                 <hr class="w-full">
                 <p class="mt-4 p-4">
-                {{$reservation->body}}
+                {{$reservation->guest_id}}/ {{$reservation->guest->id??'エラー'}}
                 </p>
-                <div class="p-4 text-sm font-semibold">
+                <p class="mt-4 p-4">
+                {{$reservation->number}}
+                </p>
+                <p class="mt-4 p-4">
+                {{$reservation->inday}}
+                </p>
+                <p class="mt-4 p-4">
+                {{$reservation->outday}}
+                </p><br><br><br>
+                {{-- <div class="p-4 text-sm font-semibold">
                  <p>
-                    {{$reservation->created_at}}
+                    {{$reservation->created_at}} / {{$reservation->id}}
                  </p>
-                </div>
+                </div> --}}
             </div>
         @endforeach
     </div>

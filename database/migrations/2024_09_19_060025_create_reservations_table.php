@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             //FKの情報をPKに入れる
-            $table->foreignId('userid');
+            $table->foreignId('guest_id');
             
             $table->integer('number');
             $table->dateTime('inday');
@@ -31,7 +31,7 @@ return new class extends Migration
         //Schema::dropIfExists('reservations');
 
         Schema::table('reservations', function (Blueprint $table) {
-            $table->dropColumn('userid');
+            $table->dropColumn('guest_id');
         });
     }
 };

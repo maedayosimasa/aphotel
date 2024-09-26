@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('reservid');
             $table->integer('roomid');
             $table->date('stay_day');
-            $table->integer('stay_praice');
+            $table->integer('stay_price');
             $table->timestamps();
         });
     }

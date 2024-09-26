@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guest extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
   protected $fillable = [
     'username',
@@ -15,11 +15,8 @@ class Guest extends Model
     'tel',
   ];
 
-  public function reservations(){
+  public function reservations()
+  {
     return $this->hasMany(Reservation::class);
   }
-  public function guest() {
-    return $this->belongsTo(Guest::class);
-  }
-  }
-
+}

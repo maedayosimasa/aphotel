@@ -20,7 +20,8 @@ use App\Models\Room_type_master;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('reservation',[ReservationController::class, 'index']);
+//一覧画面の作成
+Route::get('Reservation',[ReservationController::class, 'index']);
 
 
 Route::get('Guest/create', [GuestController::class, 'create']);
