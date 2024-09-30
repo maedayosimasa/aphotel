@@ -14,7 +14,7 @@ class Guest extends Model
     'address',
     'tel',
   ];
-
+//リレーションの設定
   public function reservations()
   {
     return $this->hasMany(Reservation::class);

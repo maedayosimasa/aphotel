@@ -10,8 +10,11 @@ class Room_type_master extends Model
     use HasFactory;
 
     protected $fillable = [
-        'room_type',
         'room_name',
         'stay_number',
     ];
+
+    public function rooms() {
+        return $this->hasMany(Room::class);
+    }
 }

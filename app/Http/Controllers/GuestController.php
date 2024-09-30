@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
+    //一覧画面作成
+    public function index(){
+        $posts = Guest::all();
+        return view('guest.index', compact('posts'));
+    }
+
     public function create()
     {
         return view('guest.create');

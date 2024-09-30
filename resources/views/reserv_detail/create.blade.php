@@ -16,13 +16,9 @@
         <form method="post" action="{{route('reserv_detail.store')}}">
             @csrf
             <h2>予約明細フォーム</h2>
-             <div>
-                <label for="reserv_detail">予約明細ID：</label>
-                <input type="text" name="reserv_detail">
-            </div>
             <div>
-                <label for="reservid">予約ID：</label>
-                <input type="text" name="reservid">
+                <label for="reservation_id">予約ID：</label>
+                <input type="text" name="reservation_id">
             </div>
             <div>
                 <label for="roomid">部屋ID：</label>

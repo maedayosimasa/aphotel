@@ -17,8 +17,8 @@
             @csrf
             <h2>予約フォーム</h2>
              <div>
-                <label for="userid">利用者ID：</label>
-                <input type="text" name="userid">
+                <label for="guest_id">利用者ID：</label>
+                <input type="text" name="guest_id">
             </div>
             <div>
                 <label for="number">人数：</label>

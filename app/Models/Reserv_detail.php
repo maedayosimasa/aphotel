@@ -10,8 +10,7 @@ class Reserv_detail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reserv_detail',
-        'reservid',
+        'reservation_id',
         'roomid',
         'stay_day',
         'stay_price',

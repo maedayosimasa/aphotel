@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Reserv_detailController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\Room_type_masterController;
+use App\Models\Guest;
 use App\Models\Reserv_detail;
 use App\Models\Reservation;
 use App\Models\Room_type_master;
@@ -21,7 +22,12 @@ use App\Models\Room_type_master;
 |
 */
 //一覧画面の作成
+Route::get('Guest', [GuestController::class, 'index']);
 Route::get('Reservation',[ReservationController::class, 'index']);
+Route::get('Reserv_detail', [Reserv_detailController::class, 'index']);
+Route::get('Room', [RoomController::class, 'index']);
+Route::get('Room_type_master', [Room_type_masterController::class, 'index']);
+
 
 
 Route::get('Guest/create', [GuestController::class, 'create']);

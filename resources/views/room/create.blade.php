@@ -15,13 +15,8 @@
     <div>
         <form method="post" action="{{route('room.store')}}">
             @csrf
-             <div>
-                <label for="roomid">部屋ID：</label>
-                <input type="text" name="roomid">
-            </div>
-            <div>
-                <label for="room_typeid">部屋種別ID：</label>
-                <input type="text" name="room_typeid">
+                <label for="room_type_master_id">部屋種別ID：</label>
+                <input type="text" name="room_type_master_id">
             </div>
             <div>
                 <label for="room_number">部屋番号：</label>

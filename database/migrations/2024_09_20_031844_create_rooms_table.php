@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Room_type_master;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +13,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
+
             $table->id();
-            $table->integer('roomid');
-            $table->integer('room_typeid');
+            //主キー情報を入れ
+            $table->foreignId('room_type_master_id');
             $table->integer('room_number');
             $table->timestamps();
         });
@@ -25,6 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rooms');
+       // Schema::dropIfExists('rooms');
+       Schema::table('room_type_masters',function (Blueprint $table){
+        $table->dropColumn('room_type_masuter_id');
+       });
     }
 };

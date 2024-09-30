@@ -9,12 +9,14 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $fillable = [
+        //外部キーid
         'guest_id',
+
         'number',
         'inday',
         'outday',
     ];
-
+//リレーションの設定
     public function guest() {
         return $this->belongsTo(Guest::class);
     }

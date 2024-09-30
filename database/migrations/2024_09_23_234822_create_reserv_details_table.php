@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('reserv_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('reserv_detail');
-            $table->integer('reservid');
+            $table->integer('reservation_id');
             $table->integer('roomid');
             $table->date('stay_day');
             $table->integer('stay_price');
