@@ -18,6 +18,12 @@
                 <p class="mt-4 p-4">部屋番号 :
                 {{$room->room_number}}
                 </p>
+
+                <!-- Room_type_master 情報 -->
+                <h4 class="p-4 text-lg font-semibold">部屋種別マスタ</h4>
+                <p>名        称 : {{$room->room_type_master->room_name}}</p>
+                <p>宿泊可能人数 : {{$room->room_type_master->stay_number}}</p>
+
             </div>
         @endforeach
     </div>

@@ -8,11 +8,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>room_type_master入力</title>
     </head>
     <body>
         
     <div>
+         @if (session('message'))
+        <div class="text-red-600 font-bold">
+            {{session('message')}}
+        </div>  
+        @endif
         <form method="post" action="{{route('room_type_master.store')}}">
             @csrf
             <div>

@@ -21,6 +21,7 @@ class RoomController extends Controller
         'room_type_master_id' => $request->room_type_master_id,
         'room_number' => $request->room_number
         ]);
-        return back();
+        $request->session()->flash('message', '保存しました');
+        return back()->with('message','保存しました');
     }
 }

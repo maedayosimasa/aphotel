@@ -24,6 +24,7 @@ public function index(){
             'stay_day' => $request->stay_day,
             'stay_price' => $request->stay_price
         ]);
-        return back();
+        $request->session()->flash('massage','保存しました');
+        return back()->with('message','保存しました');
     }
 }

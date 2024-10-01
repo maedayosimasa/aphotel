@@ -8,11 +8,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>room入力</title>
     </head>
     <body>
         
     <div>
+         @if (session('message'))
+        <div class="text-red-600 font-bold">
+            {{session('message')}}
+        </div>  
+        @endif
         <form method="post" action="{{route('room.store')}}">
             @csrf
                 <label for="room_type_master_id">部屋種別ID：</label>
