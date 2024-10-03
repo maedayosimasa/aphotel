@@ -16,7 +16,7 @@
              </h3>
                 <hr class="w-full">
                 <p class="mt-4 p-4">部屋ID :
-                {{$reserv_detail->roomid}}
+                {{$reserv_detail->room_id}}
                 </p>
                 <p class="mt-4 p-4">宿泊日 :
                 {{$reserv_detail->stay_day}}

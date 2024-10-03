@@ -27,7 +27,7 @@ class ReservationController extends Controller
             'inday' => $request->inday,
             'outday' => $request->outday
         ]);
-        $request->session()->flash('message','保存しました');
+        $request->session()->flush('message','保存しました');
         return back()->with('message','保存しました');
     }
 }

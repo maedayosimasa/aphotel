@@ -1,7 +1,4 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2>利用者フォーム</h2>
-    </x-slot> --}}
+
     <!DOCTYPE html>
     <html lang="jp">
     <head>
@@ -26,8 +23,8 @@
                 <input type="text" name="reservation_id">
             </div>
             <div>
-                <label for="roomid">部屋ID：</label>
-                <input type="text" name="roomid">
+                <label for="room_id">部屋ID：</label>
+                <input type="text" name="room_id">
             </div>
             <div>
                 <label for="stay_day">宿泊日：</label>
@@ -44,4 +41,3 @@
 
     </body>
     </html>
-{{-- </x-app-layout> --}}

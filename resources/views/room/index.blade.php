@@ -24,6 +24,9 @@
                 <p>名        称 : {{$room->room_type_master->room_name}}</p>
                 <p>宿泊可能人数 : {{$room->room_type_master->stay_number}}</p>
 
+                {{-- Reserv_detail情報 --}}
+                <p>予約明細 :  {{$room}} </p>
+
             </div>
         @endforeach
     </div>

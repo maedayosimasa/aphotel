@@ -11,8 +11,9 @@ class Reserv_detail extends Model
 
     protected $fillable = [
         'reservation_id',
-        'roomid',
+        'room_id',
         'stay_day',
         'stay_price',
     ];
+    //
 }

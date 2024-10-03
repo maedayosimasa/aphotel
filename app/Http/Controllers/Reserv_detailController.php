@@ -19,12 +19,12 @@ public function index(){
     public function store(Request $request) {
         $post = Reserv_detail::create([
             'reservation_id' => $request->reservation_id,
-            'reservid' => $request->reservid,
-            'roomid' => $request->roomid,
+            //'reservid' => $request->reservid,
+            'room_id' => $request->room_id,
             'stay_day' => $request->stay_day,
             'stay_price' => $request->stay_price
         ]);
-        $request->session()->flash('massage','保存しました');
+        $request->session()->flush('massage','保存しました');
         return back()->with('message','保存しました');
     }
 }
