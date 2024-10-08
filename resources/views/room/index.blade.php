@@ -25,7 +25,12 @@
                 <p>宿泊可能人数 : {{$room->room_type_master->stay_number}}</p>
 
                 {{-- Reserv_detail情報 --}}
-                <p>予約明細 :  {{$room}} </p>
+                <h4>予約明細</h4>
+                <p>予約ID : {{$room->reservations->first()->id}} </p>
+                <p>部屋ID : {{$room->reservations->first()->pivot->room_id}} </p>
+                <p>宿泊日 : {{$room->reservations->first()->pivot->stay_day}} </p>
+                <p>宿泊料 : {{$room->reservations->first()->pivot->stay_price}} </p>
+                {{-- <p>予約明細 :  {{$room->reservations}} </p> --}}
 
             </div>
         @endforeach

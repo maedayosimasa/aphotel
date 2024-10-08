@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ゲスト入力</title>
+    <title>reservation入力</title>
     <style>
         body {
             background: linear-gradient(135deg, #fff7e6, #ffecd1);
@@ -38,23 +38,36 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            text-indent: 2em; /* 段落のインデント */
         }
 
+        .card h4 {
+            font-size: 1.5rem;
+            color: #6b4f1d;
+            text-shadow: 1px 1px 3px #b08401;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            color: #3d2f0c;
+            text-indent: 2em;
+        }
+
+        /* フォームのレイアウト */
         .form-group {
-            display: flex; /* フレックスボックスで横並びに */
-            align-items: center; /* ラベルと入力を垂直方向に中央揃え */
+            display: flex; /* 横並び */
+            align-items: center;
             gap: 10px;
             margin-bottom: 15px;
         }
 
         .form-group label {
-            width: 200px; /* ラベルの固定幅 */
+            width: 150px; /* ラベルの幅を固定 */
             text-align: right; /* ラベルのテキストを右揃え */
-            padding-right: 10px; /* ラベルと入力の間にスペース */
         }
 
         .form-group input[type="text"],
-        .form-group input[type="tel"] {
+        .form-group input[type="date"] {
             flex: 1; /* 入力フィールドを残りのスペースに広げる */
             padding: 10px;
             background-color: white;
@@ -65,7 +78,7 @@
         }
 
         input[type="text"]:focus,
-        input[type="tel"]:focus {
+        input[type="date"]:focus {
             box-shadow: 0 0 10px gold; /* フォーカス時に外側に光る */
             outline: none;
         }
@@ -81,7 +94,7 @@
             cursor: pointer;
             transition: background 0.3s ease;
             display: block;
-            margin: 20px auto 0; /* ボタンの上マージンを20px、下は0に設定 */
+            margin: 20px auto 0;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
@@ -89,21 +102,25 @@
             background: linear-gradient(135deg, #ffcc00, #d4a017);
         }
 
+        input[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
         /* モバイル対応 */
         @media (max-width: 600px) {
             .form-group {
                 flex-direction: column; /* モバイルでは縦に並ぶ */
+                align-items: stretch;
             }
 
             .form-group label {
-                width: auto; /* ラベルの幅を自動調整 */
-                text-align: left; /* 左揃えに変更 */
+                text-align: left; /* モバイルでは左揃え */
             }
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const inputs = document.querySelectorAll('input[type="text"], input[type="tel"]');
+            const inputs = document.querySelectorAll('input[type="text"], input[type="date"]');
             inputs.forEach(input => {
                 input.addEventListener('focus', function () {
                     this.style.boxShadow = "0 0 10px gold";
@@ -114,33 +131,71 @@
             });
         });
     </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // guest_id の input フィールドをクリックしたときにページを移動
+            document.getElementById('guest_id').addEventListener('click', function () {
+                window.location.href = "{{ route('guest.create') }}";
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
-        @if (session('message'))
-            <div class="text-red-600 font-bold">
-                {{ session('message') }}
-            </div>
-        @endif
-        <form method="post" action="{{ route('guest.store') }}">
+        <h3>予約管理表</h3>
+        <br>
+        <div class="card">
+            <h3>部屋詳細</h3>
+            <br>
+            <h3>空室カレンダー</h3>
+        </div>
+        <h3>予約入力</h3>
+        <form method="post" action="{{route('Reservation.store_manag')}}">
             @csrf
-            <h3>利用者入力フォーム</h3>
             <div class="card">
                 <div class="form-group">
-                    <label for="username">氏名：</label>
-                    <input type="text" name="username" id="username" placeholder="氏名を入力してください">
+                    <label for="reservation_id">予 約 ID：</label>
+                    <input type="text" name="reservation_id">
+                </div>
+               
+                <div class="form-group">
+                    <label for="guest_id">利用者ID：</label>
+                    <input type="text" name="guest_id" id="guest_id" placeholder="クリックで利用者画面へ移動します。" value="{{old('guest_id')}}" readonly >
+                 </div>
+                <div class="form-group">
+                    <label for="number">人数：</label>
+                    <input type="text" name="number">
+                </div>
+                 <div class="form-group">
+                    <label for="room_id">部  屋 ID：</label>
+                    <input type="text" name="room_id">
                 </div>
                 <div class="form-group">
-                    <label for="address">住所：</label>
-                    <input type="text" name="address" id="address" placeholder="住所を入力してください">
+                    <label for="inday">チェックイン日付：</label>
+                    <input type="date" name="inday">
                 </div>
                 <div class="form-group">
-                    <label for="tel">電話番号：</label>
-                    <input type="tel" name="tel" id="tel" placeholder="電話番号を入力してください">
+                    <label for="outday">チェックアウト日付：</label>
+                    <input type="date" name="outday">
                 </div>
-                <input type="submit" value="送信"> 
+         
+  
+                <div class="form-group">
+                    <label for="stay_day">宿 泊 日：</label>
+                    <input type="date" name="stay_day">
+                </div>
+                <div class="form-group">
+                    <label for="stay_price">宿 泊 料：</label>
+                    <input type="text" name="stay_price">
+                </div>
             </div>
+            <div class="card">
+                    <p>変更</p>
+                    <p>キャンセル</p>
+            </div>
+            <input type="submit" value="送信">
         </form>
+       
     </div>
 </body>
 </html>

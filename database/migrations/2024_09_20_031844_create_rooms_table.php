@@ -15,8 +15,9 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
 
             $table->id();
-            //主キー情報を入れ
+            //FK情報
             $table->foreignId('room_type_master_id');
+            
             $table->integer('room_number');
             $table->timestamps();
         });

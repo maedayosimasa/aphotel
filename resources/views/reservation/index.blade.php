@@ -141,7 +141,7 @@
         <h3>RESEVATION一覧表示</h3>
         @foreach($posts as $reservation)
             <div class="card">
-                <h4>利用者ID : {{$reservation->guest_id}} / PKID : {{$reservation->guest->id ?? 'エラー'}}</h4><br>
+                <h4>利用者ID : {{$reservation->guest_id}} / PKID : {{$reservation->guest->id ?? 'エラー'}}</h4>
                 <hr class="thin-border">
                 <p>人数 : {{$reservation->number}}</p><br>
                 <p>チェックイン日 : {{$reservation->inday}}</p><br>
@@ -152,6 +152,17 @@
                     <p>氏名 : {{$reservation->guest->username}}</p><br>
                     <p>住所 : {{$reservation->guest->address}}</p><br>
                     <p>電話番号 : {{$reservation->guest->tel}}</p><br>
+
+                    <h4>予約明細</h4><br>
+                    <p>予約ＩＤ  : {{$reservation->rooms->first()->id}}</p><br>
+                    <p>部屋ID  : {{$reservation->rooms->first()->pivot->room_id}}</p><br>
+                    <p>宿泊日 : {{$reservation->rooms->first()->pivot->stay_day}}</p><br>
+                     <p>宿泊料 : {{$reservation->rooms->first()->pivot->stay_price}}</p><br>
+                    {{-- <p>ROOMPKID : {{$reservation->rooms->first()->id?? 'エラー'}}</p><br>
+                      ROOM {{$reservation->rooms->first()->pivot}} --}}
+                    <h4>部屋</h4><br>
+                    <p>部屋種別マスター : {{$reservation->rooms->first()->room_type_master_id}}</p><br>
+                    <p>部屋番号 : {{$reservation->rooms->first()->room_number}}</p>
                 </div>
             </div>
         @endforeach
