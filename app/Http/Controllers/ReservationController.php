@@ -36,14 +36,14 @@ class ReservationController extends Controller
 
       //予約管理表の入力設定management
     public function management(){
-   
+        //ログイン時名前を連動入力
         $user = User::find(auth()->id());
-        // dump($user->name);
+        // dump($user->name); 確認表示用
         return view('reservation.management', ['guest_id' => $user->name]);
     }
     public function store_manag(Request $request){
         $post = Reservation::create([
-            //'guest_id' => $request->guest_id,
+            //'guest_id' => $request->guest_id,   ログインから直接入力
             'number' => $request->number,
             'inday' => $request->inday,
             'outday' => $request->outday

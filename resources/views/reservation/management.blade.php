@@ -131,14 +131,14 @@
             });
         });
     </script>
-     <script>
+     {{-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             // guest_id の input フィールドをクリックしたときにページを移動
             document.getElementById('guest_id').addEventListener('click', function () {
                 window.location.href = "{{ route('guest.create') }}";
             });
         });
-    </script>
+    </script> --}}
 </head>
 <body>
     <div class="container">
@@ -160,7 +160,7 @@
                
                 <div class="form-group">
                     <label for="guest_id">利用者ID：</label>
-                    <input type="text" name="guest_id" id="guest_id" placeholder="クリックでログイン画面に移動します。" value="{{old('guest_id')}}" readonly >
+                    <input type="text" name="guest_id" id="guest_id" placeholder="お客様氏名" value="{{$guest_id}}">
                  </div>
                 <div class="form-group">
                     <label for="number">人数：</label>

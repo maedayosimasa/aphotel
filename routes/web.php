@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ReservationController;
@@ -21,10 +22,11 @@ use App\Models\Room_type_master;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+*/ 
+
 //一覧画面の作成
 Route::get('Guest', [GuestController::class, 'index']);
-Route::get('Reservation',[ReservationController::class, 'index']);
+Route::get('Reservation', [ReservationController::class, 'index']);
 Route::get('Reserv_detail', [Reserv_detailController::class, 'index']);
 Route::get('Room', [RoomController::class, 'index']);
 Route::get('Room_type_master', [Room_type_masterController::class, 'index']);
@@ -43,20 +45,32 @@ Route::get('Reserv_detail/create', [Reserv_detailController::class, 'create']);
 Route::post('Reserv_detail', [Reserv_detailController::class, 'store'])->name('reserv_detail.store');
 
 Route::get('Room/create', [RoomController::class, 'create']);
-Route::post('Room',[RoomController::class, 'store'])->name('room.store');
+Route::post('Room', [RoomController::class, 'store'])->name('room.store');
 
 Route::get('Room_type_master/create', [Room_type_masterController::class, 'create']);
 Route::post('Room_type_master', [Room_type_masterController::class, 'store'])->name('room_type_master.store');
 
-//manegementのRoute設定
-Route::get('Reservation/management', [ReservationController::class, 'management']);
+//manegementのRoute設定//manegementはmiddlewereでログインページにリダイレクト追記
+Route::get('Reservation/management', [ReservationController::class, 'management'])->middleware('auth');
 Route::post('Reservation', [ReservationController::class, 'store_manag'])->name('Reservation.store_manag');
 
 //manegementのguest入力時のaルート
 Route::get('/guest/create', [GuestController::class, 'create'])->name('guest.create');
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
