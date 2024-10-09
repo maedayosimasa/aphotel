@@ -160,7 +160,7 @@
                
                 <div class="form-group">
                     <label for="guest_id">利用者ID：</label>
-                    <input type="text" name="guest_id" id="guest_id" placeholder="クリックで利用者画面へ移動します。" value="{{old('guest_id')}}" readonly >
+                    <input type="text" name="guest_id" id="guest_id" placeholder="クリックでログイン画面に移動します。" value="{{old('guest_id')}}" readonly >
                  </div>
                 <div class="form-group">
                     <label for="number">人数：</label>

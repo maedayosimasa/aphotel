@@ -6,6 +6,7 @@ use App\Models\Guest;
 use App\Models\Reserv_detail;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\User;
 
 class ReservationController extends Controller
 {
@@ -35,11 +36,14 @@ class ReservationController extends Controller
 
       //予約管理表の入力設定management
     public function management(){
-        return view('reservation.management');
+   
+        $user = User::find(auth()->id());
+        // dump($user->name);
+        return view('reservation.management', ['guest_id' => $user->name]);
     }
     public function store_manag(Request $request){
         $post = Reservation::create([
-            'guest_id' => $request->guest_id,
+            //'guest_id' => $request->guest_id,
             'number' => $request->number,
             'inday' => $request->inday,
             'outday' => $request->outday
