@@ -26,10 +26,10 @@
 
                 {{-- Reserv_detail情報 --}}
                 <h4>予約明細</h4>
-                <p>予約ID : {{$room->reservations->first()->id}} </p>
-                <p>部屋ID : {{$room->reservations->first()->pivot->room_id}} </p>
-                <p>宿泊日 : {{$room->reservations->first()->pivot->stay_day}} </p>
-                <p>宿泊料 : {{$room->reservations->first()->pivot->stay_price}} </p>
+                <p>予約ID : {{$room->reservations->first()->id ?? 'エラー'}} </p>
+                <p>部屋ID : {{$room->reservations->first()->pivot->room_id ?? 'エラー'}} </p>
+                <p>宿泊日 : {{$room->reservations->first()->pivot->stay_day ?? 'エラー'}} </p>
+                <p>宿泊料 : {{$room->reservations->first()->pivot->stay_price ?? 'エラー'}} </p>
                 {{-- <p>予約明細 :  {{$room->reservations}} </p> --}}
 
             </div>

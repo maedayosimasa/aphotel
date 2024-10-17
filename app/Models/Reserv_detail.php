@@ -15,4 +15,5 @@ class Reserv_detail extends Model
         'stay_day',
         'stay_price',
     ];
+
 }

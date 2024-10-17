@@ -58,6 +58,20 @@ Route::post('Reservation', [ReservationController::class, 'store_manag'])->name(
 Route::get('/guest/create', [GuestController::class, 'create'])->name('guest.create');
 
 
+//room_selectionのルート
+Route::get('Room/room_selection', [RoomController::class, 'room_selection']);
+// Route::get('/room_selection/availability', [RoomController::class, 'room_selection/getAvailableRooms']);
+// routes/web.php
+// 部屋選択画面を表示
+// Route::get('Room/room-selection/{room_type_id}', [RoomController::class, 'showRoomSelection'])->name('room.selection');
+
+// Route::get('rooms/{id}/room_selection', [RoomController::class, 'room_selection']);
+
+//Route::get('/api/room-selection', [RoomController::class, 'room_selection']);
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
